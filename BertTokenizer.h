@@ -15,30 +15,39 @@
 
 class BGECORE_EXPORT BertTokenizer {
 public:
+  // Tokenized model inputs with standard BERT fields.
   struct Encoding {
     std::vector<int64_t> input_ids;
     std::vector<int64_t> attention_mask;
     std::vector<int64_t> token_type_ids;
   };
 
+  // Encoding options for truncation and padding.
   struct EncodeOptions {
     int max_length = 512;
     bool pad_to_max_length = false;
   };
 
+  // Load tokenizer vocabulary from vocab.txt.
   explicit BertTokenizer(const QString &vocab_path);
 
+  // Encode text as token ids only.
   std::vector<int64_t> encode(const QString &text, int max_length = 512) const;
+  // Encode a single sentence into [CLS] ... [SEP] form with masks.
   Encoding encodeForModel(const QString &text, int max_length = 512) const;
+  // Encode a single sentence with explicit options.
   Encoding encodeForModel(const QString &text,
                           const EncodeOptions &options) const;
 
+  // Encode a sentence pair as token ids only.
   std::pair<std::vector<int64_t>, std::vector<int64_t>>
   encodePair(const QString &text_a, const QString &text_b,
              int max_length = 512) const;
 
+  // Encode a sentence pair into [CLS] A [SEP] B [SEP] form with masks.
   Encoding encodePairForModel(const QString &text_a, const QString &text_b,
                               int max_length = 512) const;
+  // Encode a sentence pair with explicit options.
   Encoding encodePairForModel(const QString &text_a, const QString &text_b,
                               const EncodeOptions &options) const;
 

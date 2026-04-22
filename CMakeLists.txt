@@ -71,4 +71,22 @@ if(WIN32)
         "${ONNXRUNTIME_DIR}/lib/onnxruntime_providers_shared.dll"
         $<TARGET_FILE_DIR:BgeCApiDemo>
     )
+
+    foreach(header_file BgeCore.h BgeCoreC.h BertTokenizer.h)
+        add_custom_command(TARGET BgeCore POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_CURRENT_SOURCE_DIR}/${header_file}"
+            $<TARGET_FILE_DIR:BgeCore>
+        )
+        add_custom_command(TARGET BgeCApiDemo POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_CURRENT_SOURCE_DIR}/${header_file}"
+            $<TARGET_FILE_DIR:BgeCApiDemo>
+        )
+        add_custom_command(TARGET BgeOnnxTest POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_CURRENT_SOURCE_DIR}/${header_file}"
+            $<TARGET_FILE_DIR:BgeOnnxTest>
+        )
+    endforeach()
 endif()

@@ -16,18 +16,23 @@ class SessionOptions;
 
 class BGECORE_EXPORT BgeOnnxEngine {
 public:
+  // Load tokenizer and ONNX session from model/vocab paths.
   BgeOnnxEngine(const QString &model_path, const QString &vocab_path);
   ~BgeOnnxEngine();
 
   BgeOnnxEngine(const BgeOnnxEngine &) = delete;
   BgeOnnxEngine &operator=(const BgeOnnxEngine &) = delete;
 
+  // Access the tokenizer used by this engine.
   BertTokenizer &tokenizer();
   const BertTokenizer &tokenizer() const;
+  // Embedding vector length reported by the ONNX model output.
   int embeddingDim() const;
 
+  // Run inference from an already-tokenized BERT encoding.
   std::vector<float>
   embedEncoding(const BertTokenizer::Encoding &encoding) const;
+  // Run single-sentence embedding with tokenizer + inference.
   std::vector<float> embedText(const QString &text, int max_length = 512) const;
 
 private:
