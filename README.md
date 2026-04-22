@@ -119,6 +119,31 @@ cmake --build . --config Release
 - `embedText(...)`：单句推理
 - `embedEncoding(...)`：使用已编码输入推理
 
+### Qt 调用示例
+
+```cpp
+#include "BgeCore.h"
+
+#include <QDebug>
+
+int main() {
+  BgeOnnxEngine engine("onnx/bge-large-zh-v1.5-fp32.onnx",
+                       "bge_onnx_demo/Xenova-bge-large-zh-v1.5/vocab.txt");
+
+  const std::vector<float> embedding = engine.embedText("示例商品标题", 512);
+  qDebug() << "embedding dim =" << embedding.size();
+  qDebug() << "first value =" << (embedding.empty() ? 0.0f : embedding[0]);
+  return 0;
+}
+```
+
+如果你想直接拿到已编码输入，也可以先用：
+
+- `engine.tokenizer().encodeForModel(...)`
+- `engine.tokenizer().encodePairForModel(...)`
+
+再交给 `engine.embedEncoding(...)` 做推理。
+
 ## 目录说明
 
 - `BertTokenizer.h/.cpp`：BERT/WordPiece tokenizer
