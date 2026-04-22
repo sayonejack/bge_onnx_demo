@@ -431,7 +431,7 @@ int main(int argc, char *argv[]) {
 
   QString api_base = parser.value(apiBaseOption);
   const QString model_rel_path = "onnx/bge-large-zh-v1.5-fp32.onnx";
-  const QString vocab_rel_path = "bge_onnx_emo/Xenova-bge-large-zh-v1.5/vocab.txt";
+  const QString vocab_rel_path = "bge_onnx_demo/Xenova-bge-large-zh-v1.5/vocab.txt";
   const QString categories_rel_path = "categorys.txt";
   const QString vectors_rel_path = "category_vectors.bin";
   QString model_path_str;

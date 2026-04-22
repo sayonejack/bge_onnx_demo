@@ -24,7 +24,7 @@ def main() -> int:
         dest="model_dir",
         default=str(
             Path(__file__).resolve().parents[1]
-            / "bge_onnx_emo"
+            / "bge_onnx_demo"
             / "Xenova-bge-large-zh-v1.5"
         ),
         help="local tokenizer directory",

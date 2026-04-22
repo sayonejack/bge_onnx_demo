@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
       (argc > 1) ? argv[1] : "onnx/bge-large-zh-v1.5-fp32.onnx";
   const std::string vocab_arg =
       (argc > 2) ? argv[2]
-                 : "bge_onnx_emo/Xenova-bge-large-zh-v1.5/vocab.txt";
+                 : "bge_onnx_demo/Xenova-bge-large-zh-v1.5/vocab.txt";
   const std::string text_arg =
       (argc > 3) ? argv[3] : "这是一个商品标题示例";
 

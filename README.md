@@ -10,7 +10,7 @@
 当前使用的模型与词表位于：
 
 - `onnx/bge-large-zh-v1.5-fp32.onnx`
-- `bge_onnx_emo/Xenova-bge-large-zh-v1.5/vocab.txt`
+- `bge_onnx_demo/Xenova-bge-large-zh-v1.5/vocab.txt`
 
 当前内置的 ONNX Runtime 版本为：
 
