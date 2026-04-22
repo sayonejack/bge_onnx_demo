@@ -1,0 +1,35 @@
+# Build outputs
+/build/
+/build2/
+/CMakeFiles/
+/cmake-build-*/
+/Testing/
+
+# ONNX Runtime binary package and extracted runtime
+/onnxruntime-win-x64.zip
+/onnxruntime-win-x64-1.17.1/
+
+# IDE and temporary files
+*.user
+*.vcxproj.user
+*.suo
+*.cache
+*.tmp
+*.log
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.dll
+*.exe
+
+# Qt generated files
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+
+# Python cache
+__pycache__/
+*.pyc
+
