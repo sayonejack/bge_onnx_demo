@@ -110,6 +110,13 @@ cmake --build . --config Release
 
 如果你希望由 DLL 分配内存，也可以使用 `bge_engine_embed_text` / `bge_engine_embed_pair`，然后用 `bge_engine_free_float_array` 释放。
 
+### 释放说明
+
+- `bge_engine_create(...)` 返回的句柄，必须用 `bge_engine_destroy(...)` 释放
+- `bge_engine_embed_text(...)` / `bge_engine_embed_pair(...)` 返回的数组，必须用 `bge_engine_free_float_array(...)` 释放
+- `bge_engine_embed_text_to_buffer(...)` / `bge_engine_embed_pair_to_buffer(...)` 不会分配返回数组，输出缓冲区由调用方自己管理，不需要 DLL 释放
+- 如果你只使用 `BgeOnnxEngine` C++ 封装，通常不需要手动释放，析构函数会自动清理资源
+
 ## C++ 封装
 
 如果你在 C++ 项目里集成，可以直接包含 `BgeCore.h`，使用 `BgeOnnxEngine`：
