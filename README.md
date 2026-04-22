@@ -7,6 +7,24 @@
 - 示例程序 `BgeOnnxTest.exe`
 - C ABI 示例程序 `BgeCApiDemo.exe`
 
+## Release
+
+最新发布版本：
+
+- [v0.1.0](https://github.com/sayonejack/bge_onnx_demo/releases/tag/v0.1.0)
+
+发布包包含：
+
+- `BgeCore.dll`
+- `BgeCore.lib`
+- `BgeCore.h`
+- `BgeCoreC.h`
+- `BertTokenizer.h`
+- `BgeOnnxTest.exe`
+- `BgeCApiDemo.exe`
+- `onnxruntime.dll`
+- `onnxruntime_providers_shared.dll`
+
 当前使用的模型与词表位于：
 
 - `onnx/bge-large-zh-v1.5-fp32.onnx`
